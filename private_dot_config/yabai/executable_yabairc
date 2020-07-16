@@ -1,0 +1,21 @@
+yabai -m config layout bsp
+yabai -m config --space 1 layout float
+
+yabai -m config window_shadow float
+
+# Should stop most preferences windows from being tiled
+yabai -m rule --add title='Preferences$' manage=off
+
+# If Preferences is accessed through Alfred then the title won't match the above
+yabai -m rule --add app='System Preferences' manage=off
+
+yabai -m rule --add app=Emacs manage=on
+
+# spacebar is 26px tall
+yabai -m config top_padding 30
+yabai -m config bottom_padding 4
+yabai -m config left_padding 4
+yabai -m config right_padding 4
+yabai -m config window_gap 4
+
+yabai -m signal --add event='window_destroyed' action="~/.config/yabai/auto_delete_spaces.sh"

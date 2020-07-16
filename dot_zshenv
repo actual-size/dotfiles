@@ -1,0 +1,15 @@
+# This file exists purely to change zsh to use XDG_CONFIG_HOME/zsh
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config}
+export ZDOTDIR=${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}
+
+# create if it doesn't exist
+if [[ ! -a $ZDOTDIR  ]] then
+    mkdir $ZDOTDIR
+fi
+
+# source .zshenv if it exists
+if [[ -a $ZDOTDIR/.zshenv  ]] then
+    source $ZDOTDIR/.zshenv
+fi
+
+
