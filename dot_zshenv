@@ -11,5 +11,3 @@ fi
 if [[ -a $ZDOTDIR/.zshenv  ]] then
     source $ZDOTDIR/.zshenv
 fi
-
-

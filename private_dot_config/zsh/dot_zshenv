@@ -1,0 +1,30 @@
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+# keep values unique (from zshbuiltins)
+typeset -U path
+path=(
+  /usr/local/{bin,sbin}
+  $HOME/opt/miniconda3/bin
+  $HOME/.local/bin
+  $HOME/.deno/bin
+  $HOME/.config/emacs/bin
+  $path
+)
+
+path=(
+  /Users/river/.config/yarn/global
+  $path
+)
+
+export PATH
+
+export EDITOR=vim
+export VISUAL=emacs
+
+alias sp='spotify'
+alias spn='spotify next'
+alias spp='spotify prev'
+alias spi='spotify info'
+alias sps='spotify status'
